@@ -3,7 +3,7 @@ package hu.unideb;
 public class Main {
 
     public static void main(String[] args) {
-        if (args.length != 1 || args[0].contains(".")) {
+        if (args.length != 1) {
             System.out.println("Error: provide the path of a directory");
             System.exit(1);
         }

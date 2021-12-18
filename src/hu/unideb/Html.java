@@ -43,6 +43,10 @@ public class Html {
     }
 
     private static String getDirectoryPage(Folder folder) {
+        String backToParentFolder = "href=\"..\\index.html\"";
+        if (folder.getDepth() == 0) {
+            backToParentFolder = "href=\"index.html\"";
+        }
         return "<!DOCTYPE html>" +
                 "<html>" +
                 "<body>" +
@@ -51,6 +55,7 @@ public class Html {
                 "index.html" +
                 ">Start Page</a></h1>" +
                 "<hr>" +
+                "<p><a " + backToParentFolder + " >^^ </a></p>" +
                 "<h2>Directories:</h2>" +
                 "<p><ul>" +
                 getFoldersAsHTMLList(folder) +
@@ -83,7 +88,7 @@ public class Html {
                 "<b>" + fileName + "</b>" +  // aktuális kép neve kiterjesztéssel
                 "<a href=\"" + nextImage + "\" > >> </a>" +// hrefet beállítjuk az következő kép html oldalára
                 "</div>" +
-                "<br><a href=><img src=\"" + fileName + "\"></a>" +
+                "<br><a href=" + nextImage + "><img src=\"" + fileName + "\"></a>" +
                 "</body>" +
                 "</html>";
 
@@ -106,9 +111,9 @@ public class Html {
     private static String getImagesAsHTMLList(Folder folder) {
         StringBuilder sb = new StringBuilder();
         for (String file : folder.getFiles()) {
-            String split = file.split("\\.")[0];
+            String filename = file.split("\\.")[0];
             sb.append("<li><a href =")
-                    .append(split)
+                    .append(filename)
                     .append(".html >")
                     .append(file)
                     .append("</a></li>");
