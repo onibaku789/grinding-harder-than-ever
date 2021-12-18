@@ -57,12 +57,12 @@ public class FileUtils {
         }
     }
 
-    public static void deleteResultFolder(String resultFolderPath) {
+    public static void deleteHTMLFiles(String resultFolderPath) {
         File resultFolder = new File(resultFolderPath);
         if (resultFolder.exists()) {
             for (File file : resultFolder.listFiles()) {
                 if (file.isDirectory()) {
-                    deleteResultFolder(file.getAbsolutePath());
+                    deleteHTMLFiles(file.getAbsolutePath());
                 } else if (file.isFile() && file.getName().contains(".html")) {
                     file.delete();
                 }

@@ -8,7 +8,7 @@ public class Main {
             System.exit(1);
         }
         String resourcesFolder = args[0];
-        FileUtils.deleteResultFolder(resourcesFolder);
+        FileUtils.deleteHTMLFiles(resourcesFolder);
         Folder folder = FileUtils.readDirectory(resourcesFolder);
         Html.createHTMLFromImagesAndFolders(resourcesFolder, folder);
     }
