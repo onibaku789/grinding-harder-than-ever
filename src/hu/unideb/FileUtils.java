@@ -8,7 +8,11 @@ import java.nio.file.Files;
 
 
 public class FileUtils {
-    public static Folder readDirectory(String path, Folder rootFolder, int depth) {
+    public static Folder readDirectory(String path) {
+        return readDirectory(path, new Folder("", 0), 0);
+    }
+
+    private static Folder readDirectory(String path, Folder rootFolder, int depth) {
         File root = new File(path);
         File[] files = root.listFiles();
         for (File file : files) {
