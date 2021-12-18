@@ -9,7 +9,7 @@ import java.nio.file.Files;
 
 public class FileUtils {
     public static Folder readDirectory(String path) {
-        return readDirectory(path, new Folder("", 0), 0);
+        return readDirectory(path, new Folder("", 0), 0); // a Folder-t példányosítjuk egy üres névvel és 0 mélységgel, mivel ez a gyökér mappa
     }
 
     private static Folder readDirectory(String path, Folder rootFolder, int depth) {

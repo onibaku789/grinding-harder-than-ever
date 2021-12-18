@@ -9,7 +9,7 @@ public class Main {
         }
         String resourcesFolder = args[0];
         FileUtils.deleteResultFolder(resourcesFolder);
-        Folder folder = FileUtils.readDirectory(resourcesFolder); // a Folder-t példányosítjuk egy üres névvel és 0 mélységgel, mivel ez a gyökér mappa
+        Folder folder = FileUtils.readDirectory(resourcesFolder);
         Html.createHTMLFromImagesAndFolders(resourcesFolder, folder);
     }
 }
